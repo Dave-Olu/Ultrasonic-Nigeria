@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f3f5f5;
+  --foreground: #0f172a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Work Sans', sans-serif;
+}
+
+.font-display {
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.dark body {
+  background: #020817;
+  color: #e2e8f0;
+}
+
+.dark .bg-white,
+.dark .bg-slate-50,
+.dark .bg-slate-100 {
+  background-color: #0f172a;
+}
+
+.dark .border-slate-200 {
+  border-color: #334155;
+}
+
+.dark .text-brand-900 {
+  color: #bae6fd;
+}
+
+.dark .text-slate-600,
+.dark .text-slate-700 {
+  color: #cbd5e1;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card.is-selected {
+  border-color: #f2a93b;
+  box-shadow: 0 0 0 3px rgba(242, 169, 59, 0.25);
+}
+
+.project-carousel {
+  touch-action: pan-y;
+}
+
+.project-carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 350ms ease;
+}
+
+.project-carousel-track img {
+  flex: 0 0 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-carousel-track {
+    transition: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+#products .flex > span {
+  animation: brand-chip-in 600ms both;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
+}
+
+#products .flex > span:hover,
+#products .flex > span:focus-visible {
+  transform: translateY(-4px) scale(1.03);
+  border-color: #2e7dd7;
+  box-shadow: 0 8px 18px -10px rgba(14, 42, 77, 0.65);
+  color: #0e2a4d;
+  outline: none;
+}
+
+#products .flex > span:nth-child(2) { animation-delay: 70ms; }
+#products .flex > span:nth-child(3) { animation-delay: 140ms; }
+#products .flex > span:nth-child(4) { animation-delay: 210ms; }
+#products .flex > span:nth-child(5) { animation-delay: 280ms; }
+#products .flex > span:nth-child(6) { animation-delay: 350ms; }
+#products .flex > span:nth-child(7) { animation-delay: 420ms; }
+#products .flex > span:nth-child(8) { animation-delay: 490ms; }
+
+@keyframes brand-chip-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

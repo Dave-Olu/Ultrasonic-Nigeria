@@ -1,0 +1,83 @@
+{
+  "hero": {
+    "title": "Powering homes and businesses with solar, across Nigeria.",
+    "subtitle": "Affordable, reliable, and clean power systems for homes, offices, farms, and commercial projects.",
+    "phone": "+2349067690379",
+    "cta": "Request a quote"
+  },
+  "stats": [
+    { "label": "Projects executed", "value": 50 },
+    { "label": "Customers served", "value": 100 },
+    { "label": "Locations covered", "value": 6 }
+  ],
+  "services": [
+    {
+      "id": "default-1",
+      "title": "Solar Panel Installation",
+      "description": "Design and installation of residential and commercial solar arrays.",
+      "image": "/Images/panel.jpg",
+      "category": "Installation",
+      "createdAt": "2026-09-24T00:00:00.000Z"
+    },
+    {
+      "id": "default-2",
+      "title": "Inverter Installation",
+      "description": "Hybrid and backup inverter systems tailored to your power demand.",
+      "image": "/Images/Inverter.jpg",
+      "category": "Inverter",
+      "createdAt": "2026-09-24T00:00:00.000Z"
+    },
+    {
+      "id": "default-3",
+      "title": "Battery & Charge Controller",
+      "description": "Energy storage and charge control for dependable, long-term performance.",
+      "image": "/Images/IMG-20260921-WA0034.jpg",
+      "category": "Power Storage",
+      "createdAt": "2026-09-24T00:00:00.000Z"
+    },
+    {
+      "id": "default-4",
+      "title": "System Maintenance",
+      "description": "Repairs, checks, and upgrades to keep your system working efficiently.",
+      "image": "/Images/IMG-20260921-WA0028.jpg",
+      "category": "Maintenance",
+      "createdAt": "2026-09-24T00:00:00.000Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": "default-project-1",
+      "title": "Home Solar Upgrade",
+      "description": "12kW hybrid power solution installed to improve efficiency and reliability.",
+      "image": "/Images/work_photo.jpg",
+      "category": "Residential",
+      "createdAt": "2026-09-24T00:00:00.000Z"
+    },
+    {
+      "id": "default-project-2",
+      "title": "Commercial Power System",
+      "description": "Stable energy support for a business environment with long-running loads.",
+      "image": "/Images/IMG-20260921-WA0033.jpg",
+      "category": "Commercial",
+      "createdAt": "2026-09-24T00:00:00.000Z"
+    },
+    {
+      "id": "default-project-3",
+      "title": "Farm Energy Setup",
+      "description": "Power for irrigation and daily pumping operations with strong backup storage.",
+      "image": "/Images/solar array.jpg",
+      "category": "Agriculture",
+      "createdAt": "2026-09-24T00:00:00.000Z"
+    }
+  ],
+  "brands": [
+    "Deye",
+    "Cworth",
+    "LVTOPSUN",
+    "Jinko",
+    "JA Solar",
+    "Longi",
+    "Felicity",
+    "SNRE"
+  ]
+}
