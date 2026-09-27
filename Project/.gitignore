@@ -4,3 +4,13 @@ out
 npm-debug.log*
 .DS_Store
 *.tsbuildinfo
+.env*
+!.env.example
+data/admin-auth.json
+data/admin-email-login-token.json*
+public/uploads/
+*.zip
+.kiro/
+Documentation/
+.env
+.env*.local

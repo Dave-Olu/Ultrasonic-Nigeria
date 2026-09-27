@@ -15,6 +15,18 @@ export type SiteItem = {
   createdAt: string;
 };
 
+export type SiteProduct = {
+  name: string;
+  images: string[];
+};
+
+export type SiteContact = {
+  primaryPhone: string;
+  secondaryPhone: string;
+  email: string;
+  officeAddress: string;
+};
+
 export type SiteContent = {
   hero: {
     title: string;
@@ -22,10 +34,11 @@ export type SiteContent = {
     phone: string;
     cta: string;
   };
+  contact: SiteContact;
   stats: SiteStat[];
   services: SiteItem[];
   projects: SiteItem[];
-  brands: string[];
+  products: SiteProduct[];
 };
 
 const DATA_FILE = path.join(process.cwd(), 'data', 'site-content.json');
@@ -37,6 +50,12 @@ const fallbackContent: SiteContent = {
       'Affordable, reliable, and clean power systems for homes, offices, farms, and commercial projects.',
     phone: '+2349067690379',
     cta: 'Request a quote',
+  },
+  contact: {
+    primaryPhone: '+2349067690379',
+    secondaryPhone: '+2349050033209',
+    email: 'uwen94@gmail.com',
+    officeAddress: 'Block 195, Fatima Gold Estate, Mararaba, Nasarawa State',
   },
   stats: [
     { label: 'Projects executed', value: 50 },
@@ -103,7 +122,16 @@ const fallbackContent: SiteContent = {
       createdAt: new Date().toISOString(),
     },
   ],
-  brands: ['Deye', 'Cworth', 'LVTOPSUN', 'Jinko', 'JA Solar', 'Longi', 'Felicity', 'SNRE'],
+  products: [
+    { name: 'Deye', images: ['/Images/Inverter.jpg', '/Images/panel.jpg', '/Images/IMG-20260921-WA0034.jpg'] },
+    { name: 'Cworth', images: ['/Images/IMG-20260921-WA0033.jpg', '/Images/solar array.jpg', '/Images/work_photo.jpg'] },
+    { name: 'LVTOPSUN', images: ['/Images/panel.jpg', '/Images/IMG-20260921-WA0028.jpg', '/Images/Inverter.jpg'] },
+    { name: 'Jinko', images: ['/Images/solar array.jpg', '/Images/panel.jpg', '/Images/IMG-20260921-WA0034.jpg'] },
+    { name: 'JA Solar', images: ['/Images/work_photo.jpg', '/Images/solar array.jpg', '/Images/panel.jpg'] },
+    { name: 'Longi', images: ['/Images/panel.jpg', '/Images/IMG-20260921-WA0033.jpg', '/Images/solar array.jpg'] },
+    { name: 'Felicity', images: ['/Images/Inverter.jpg', '/Images/IMG-20260921-WA0029.jpg', '/Images/IMG-20260921-WA0034.jpg'] },
+    { name: 'SNRE', images: ['/Images/IMG-20260921-WA0028.jpg', '/Images/work_photo.jpg', '/Images/Inverter.jpg'] },
+  ],
 };
 
 export async function getSiteContent(): Promise<SiteContent> {
@@ -113,10 +141,11 @@ export async function getSiteContent(): Promise<SiteContent> {
 
     return {
       hero: { ...fallbackContent.hero, ...parsed.hero },
+      contact: { ...fallbackContent.contact, ...parsed.contact, primaryPhone: parsed.contact?.primaryPhone ?? parsed.hero?.phone ?? fallbackContent.contact.primaryPhone },
       stats: parsed.stats?.length ? parsed.stats : fallbackContent.stats,
       services: parsed.services?.length ? parsed.services : fallbackContent.services,
       projects: parsed.projects?.length ? parsed.projects : fallbackContent.projects,
-      brands: parsed.brands?.length ? parsed.brands : fallbackContent.brands,
+      products: parsed.products?.length ? parsed.products : fallbackContent.products,
     };
   } catch {
     return fallbackContent;
@@ -129,10 +158,11 @@ export async function saveSiteContent(nextContent: Partial<SiteContent>) {
     ...existing,
     ...nextContent,
     hero: { ...existing.hero, ...nextContent.hero },
+    contact: { ...existing.contact, ...nextContent.contact },
     stats: nextContent.stats ?? existing.stats,
     services: nextContent.services ?? existing.services,
     projects: nextContent.projects ?? existing.projects,
-    brands: nextContent.brands ?? existing.brands,
+    products: nextContent.products ?? existing.products,
   };
 
   await fs.mkdir(path.dirname(DATA_FILE), { recursive: true });

@@ -8,7 +8,7 @@ export default async function ServicesPage() {
     <main className="bg-slate-100 text-slate-900">
       <SiteHeader phone={content.hero.phone} />
       <ServicesSection services={content.services} />
-      <Footer />
+      <Footer phone={content.hero.phone} contact={content.contact} />
     </main>
   );
 }

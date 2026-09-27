@@ -7,8 +7,8 @@ export default async function ProductsPage() {
   return (
     <main className="bg-slate-100 text-slate-900">
       <SiteHeader phone={content.hero.phone} />
-      <ProductsSection brands={content.brands} />
-      <Footer />
+      <ProductsSection products={content.products} />
+      <Footer phone={content.hero.phone} contact={content.contact} />
     </main>
   );
 }
