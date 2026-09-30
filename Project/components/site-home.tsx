@@ -3,12 +3,16 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import type { SiteContact, SiteContent } from '@/lib/site-data';
+import { FAQSection } from '@/components/faq-section';
+
+export { FAQSection };
 
 const navItems = [
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
   { label: 'Projects', href: '/projects' },
   { label: 'Products', href: '/products' },
+  { label: 'FAQ', href: '/#faq' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -508,6 +512,7 @@ export function SiteHomePage({ content }: { content: SiteContent }) {
       <ServicesSection services={content.services} />
       <ProjectsSection projects={content.projects} />
       <ProductsSection products={content.products} />
+      <FAQSection phone={content.hero.phone} />
       <ContactSection phone={content.hero.phone} contact={content.contact} />
       <Footer phone={content.hero.phone} contact={content.contact} />
     </main>
